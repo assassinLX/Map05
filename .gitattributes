@@ -1,0 +1,2 @@
+Content/EchoContent/Characters/Echo/Textures/Head/T_Head_highpass_S.uasset filter=lfs diff=lfs merge=lfs -text
+Content/EchoContent/Characters/Echo/Textures/Head/* filter=lfs diff=lfs merge=lfs -text

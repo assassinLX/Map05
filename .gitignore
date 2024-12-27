@@ -1,0 +1,60 @@
+# UE自编译文件
+Binaries
+DerivedDataCache
+Intermediate
+Saved
+Build
+
+# IDE使用文件
+.vscode
+.vs
+.idea
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+*.vsconfig
+
+# 自定义
+*.sln.DotSettings.user
+
+
+# 编译对象文件 Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# 预编译头文件 Precompiled Headers
+*.gch
+*.pch
+
+# 编译动态库 Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+
+# 编译静态库 Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# 可执行文件 Executables
+*.exe
+*.out
+*.app
+*.ipa
+
+# 忽略本机自用素材
+Content/Temp
+
+# 插件
+Plugins/*/Intermediate/*
+Plugins/*/Binaries/*
