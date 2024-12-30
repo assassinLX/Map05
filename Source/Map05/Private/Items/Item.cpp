@@ -1,10 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Items/Item.h"
-#include "Map05/Map05.h"
-
-
-DEFINE_LOG_CATEGORY(ItemLog);
+#include "Map05/DebugMacros.h"
 
 
 // Sets default values
