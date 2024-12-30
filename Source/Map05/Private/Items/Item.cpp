@@ -17,12 +17,17 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FVector localPostion = GetActorLocation();
-	FVector endLocalPostion = localPostion + GetActorForwardVector() * 100.f;
+	//SetActorLocation(FVector(0.f,0.f,200.f));
+	//SetActorRotation(FRotator(0.f, 45.f, 0.f));
+	
+	//FVector localPostion = GetActorLocation();
+	//FVector endLocalPostion = localPostion + GetActorForwardVector() * 100.f;
 	//DRAW_POINT(endLocalPostion);
 	//DRAW_LINE(localPostion, endLocalPostion, 1.0f);
 	//DRAW_SPHERE(localPostion);
-	DRAW_VECTOR(localPostion, endLocalPostion)
+	//DRAW_VECTOR(localPostion, endLocalPostion);
+
+
 }
 
 
@@ -30,6 +35,14 @@ void AItem::BeginPlay()
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	//Movement rate in units of cm/s
+	float MovementRate = 50.f;
 
+	//MovementRate * DeltaTime(cm/s) * (s/frame) = (cm/frame)
+	AddActorWorldOffset(FVector(MovementRate * DeltaTime, 0.f, 0.f));
+	FVector localPostion = GetActorLocation();
+	FVector endLocalPostion = localPostion + GetActorForwardVector() * 100.f;
+	DRAW_SPHERE_SingleFrame(localPostion);
+	DRAW_VECTOR_SingleFrame(localPostion, endLocalPostion);
 }
 
