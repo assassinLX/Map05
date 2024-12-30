@@ -22,10 +22,12 @@ void AItem::BeginPlay()
 
 	FVector localPostion = GetActorLocation();
 	FVector endLocalPostion = localPostion + GetActorForwardVector() * 100.f;
-	DRAW_POINT(endLocalPostion);
-	DRAW_LINE(localPostion, endLocalPostion, 1.0f);
-	DRAW_SPHERE(localPostion);
+	//DRAW_POINT(endLocalPostion);
+	//DRAW_LINE(localPostion, endLocalPostion, 1.0f);
+	//DRAW_SPHERE(localPostion);
+	DRAW_VECTOR(localPostion, endLocalPostion)
 }
+
 
 // Called every frame
 void AItem::Tick(float DeltaTime)
