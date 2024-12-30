@@ -19,14 +19,12 @@ AItem::AItem()
 void AItem::BeginPlay()
 {
 	Super::BeginPlay();
+
 	FVector localPostion = GetActorLocation();
 	FVector endLocalPostion = localPostion + GetActorForwardVector() * 100.f;
-
-	DRAW_LINE(localPostion, endLocalPostion,1.0f)
-	DRAW_SPHERE(localPostion)
-
-
-
+	DRAW_POINT(endLocalPostion);
+	DRAW_LINE(localPostion, endLocalPostion, 1.0f);
+	DRAW_SPHERE(localPostion);
 }
 
 // Called every frame
