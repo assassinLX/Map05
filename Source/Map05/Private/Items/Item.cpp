@@ -49,7 +49,7 @@ void AItem::Tick(float DeltaTime)
 	DRAW_VECTOR_SingleFrame(localPostion, endLocalPostion);
 
 	RunningTime += DeltaTime;
-	float DeltaZ = 0.25 * FMath::Sin(RunningTime * 5.f);
+	float DeltaZ = Amplitude * FMath::Sin(RunningTime * TimeConstant);
 	AddActorWorldOffset(FVector(0.f, 0.f, DeltaZ));
 
 
