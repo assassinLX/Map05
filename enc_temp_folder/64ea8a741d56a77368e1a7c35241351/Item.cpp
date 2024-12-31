@@ -27,8 +27,8 @@ void AItem::BeginPlay()
 	//DRAW_SPHERE(localPostion);
 	//DRAW_VECTOR(localPostion, endLocalPostion);
 
-	//int32 AvgInt = Avg<int32>(1, 3);
-	//UE_LOG(LogTemp, Warning, TEXT("Avg of 1 and 3: %d"), AvgInt);
+	int32 AvgInt = Avg<int32>(1, 3);
+	UE_LOG(LogTemp, Warning, TEXT("Avg of 1 and 3: %d"), AvgInt);
 }
 
 float AItem::TransformedSin()
@@ -63,7 +63,6 @@ void AItem::Tick(float DeltaTime)
 	//float DeltaZ = Amplitude * FMath::Sin(Value * TimeConstant);
 	//AddActorWorldOffset(FVector(0.f, 0.f, DeltaZ));
 
-	FVector AvgVector = Avg<FVector>(GetActorLocation(), FVector::ZeroVector);
-	DRAW_POINT_SingleFrame(AvgVector);
+
 }
 
