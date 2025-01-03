@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Components/CapsuleComponent.h"
 #include "Bird.generated.h"
+
+class UCapsuleComponent;
+//增加声明，不在.h文件中包含其他头文件，防止编译内容过多
 
 UCLASS()
 class MAP05_API ABird : public APawn
