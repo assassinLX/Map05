@@ -9,8 +9,8 @@
 class UCapsuleComponent;
 //增加声明，不在.h文件中包含其他头文件，防止编译内容过多
 class USkeletalMeshComponent;
-
-
+class USpringArmComponent;
+class UCameraComponent;
 UCLASS()
 class MAP05_API ABird : public APawn
 {
@@ -29,7 +29,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void MoveForward(float value);
-	void MoveLeftRight(float value);
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -37,4 +36,12 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	USkeletalMeshComponent* BirdMesh;
+
+	//在之前的某些版本中，SpringArm这个名字可能会导致某些问题。
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
+
 };
