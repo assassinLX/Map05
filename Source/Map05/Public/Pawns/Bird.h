@@ -8,6 +8,8 @@
 
 class UCapsuleComponent;
 //增加声明，不在.h文件中包含其他头文件，防止编译内容过多
+class USkeletalMeshComponent;
+
 
 UCLASS()
 class MAP05_API ABird : public APawn
@@ -31,4 +33,6 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	UCapsuleComponent* Capsule;
 
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent* BirdMesh;
 };
