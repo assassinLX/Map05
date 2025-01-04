@@ -28,6 +28,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void MoveForward(float value);
+	void MoveLeftRight(float value);
 
 private:
 	UPROPERTY(VisibleAnywhere)
