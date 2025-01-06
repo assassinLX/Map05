@@ -11,6 +11,8 @@ class UCapsuleComponent;
 class USkeletalMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
+
+
 UCLASS()
 class MAP05_API ABird : public APawn
 {
@@ -28,7 +30,9 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void MoveForward(float value);
+	void MoveForward(float Value);
+	void Turn(float Value);
+	void LookUp(float Value);
 
 private:
 	UPROPERTY(VisibleAnywhere)
