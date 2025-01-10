@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "SlashCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class MAP05_API ASlashCharacter : public ACharacter
 {
@@ -19,4 +22,14 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	void MoveForward(float Value);
+	void Turn(float Value);
+	void LookUp(float Value);
+	void MoveRight(float Value);
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
 };
