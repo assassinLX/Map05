@@ -5,6 +5,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GroomComponent.h"
 
 ASlashCharacter::ASlashCharacter()
 {
@@ -14,6 +15,7 @@ ASlashCharacter::ASlashCharacter()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 
+	//设置之后，人物可以跟随移动的方向转动
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f,400.f,0.f);
 
@@ -23,7 +25,16 @@ ASlashCharacter::ASlashCharacter()
 
 	ViewCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ViewCamera"));
 	ViewCamera->SetupAttachment(CameraBoom);
+
+	Hair = CreateDefaultSubobject<UGroomComponent>(TEXT("Hair"));
+	Hair->SetupAttachment(GetMesh());
+	Hair->AttachmentName = FString("head");
+
+	Eyebrows = CreateDefaultSubobject<UGroomComponent>(TEXT("Eyebrows"));
+	Eyebrows->SetupAttachment(GetMesh());
+	Eyebrows->AttachmentName = FString("head");
 }
+
 
 void ASlashCharacter::BeginPlay()
 {
@@ -38,15 +49,13 @@ void ASlashCharacter::MoveForward(float Value)
 		//FVector forward = GetActorForwardVector();
 		//AddMovementInput(forward, Value);
 
-		//这行代码获取当前控制器的旋转（即玩家的视角方向），并将其存储在 ControlRotation 变量中。FRotator 是一个表示旋转的结构体，包含俯仰（Pitch）、偏航（Yaw）和滚转（Roll）三个分量。
 		const FRotator ControlRotation = GetControlRotation();
-
-		//这里创建了一个新的 FRotator 对象 YawRotation，它的俯仰和滚转分量都设置为 0，而偏航分量则使用了从 ControlRotation 中获取的偏航值。这意味着 YawRotation 只表示水平方向的旋转。
 		const FRotator YawRotation(0.f, ControlRotation.Yaw, 0.f);
-		
-		//这行代码使用 YawRotation 创建一个旋转矩阵，并从中获取 X 轴的单位向量。FRotationMatrix 是一个用于表示旋转的矩阵，GetUnitAxis(EAxis::X) 方法返回该矩阵在 X 轴方向上的单位向量。这个单位向量表示角色在当前视角下的前进方向。
+		//这里涉及到矩阵分量的本质问题，这个X代表什么，其实矩阵本质上，就是变换后的标准基
+		//(x,y) = ai + bj,无论如何发生变换，变换后依然满足(x,y) = ai + bj，是谁发生了改变？
+		//是i 与 j，再联想一下矩阵运算，变换后的i与j，正是那个变换矩阵。
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-
+		//放在这里，旋转矩阵的x分量，代表的就是变换后的i，这正是人物此时要运动的方向
 		AddMovementInput(Direction, Value);
 	}
 }
