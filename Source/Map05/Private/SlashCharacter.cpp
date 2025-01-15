@@ -56,6 +56,7 @@ void ASlashCharacter::MoveForward(float Value)
 		//是i 与 j，再联想一下矩阵运算，变换后的i与j，正是那个变换矩阵。
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		//放在这里，旋转矩阵的x分量，代表的就是变换后的i，这正是人物此时要运动的方向
+
 		AddMovementInput(Direction, Value);
 	}
 }
