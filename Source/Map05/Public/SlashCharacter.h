@@ -39,4 +39,5 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UGroomComponent* Eyebrows;
+
 };
