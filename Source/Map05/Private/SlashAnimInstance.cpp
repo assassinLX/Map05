@@ -6,7 +6,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
-void USlashAnimInstance::NativeInitializeAnimation() {
+void USlashAnimInstance::NativeInitializeAnimation() 
+{
 	Super::NativeInitializeAnimation();
 
 	//static_cast<>()
@@ -18,7 +19,8 @@ void USlashAnimInstance::NativeInitializeAnimation() {
 	}
 }
 
-void USlashAnimInstance::NativeUpdateAnimation(float DeltaSeconds) {
+void USlashAnimInstance::NativeUpdateAnimation(float DeltaSeconds) 
+{
 	Super::NativeUpdateAnimation(DeltaSeconds);
 
 	if (SlashCharacterMovement)
